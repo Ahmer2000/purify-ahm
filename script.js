@@ -27,7 +27,7 @@ function secondsToMinutes(seconds) {
 
 async function getRecitations (folder) {
     currFolder = folder
-    let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
+    let a = await fetch(`/${folder}/`);
     let response = await a.text();
     // console.log(response);
     let div = document.createElement('div');
@@ -84,7 +84,7 @@ async function getRecitations (folder) {
 }
 
 async function displayAlbums (){
-    let a = await fetch(`http://127.0.0.1:5500/recitations/`);
+    let a = await fetch(`/recitations/`);
     let response = await a.text();
     // console.log(response);
     let div = document.createElement('div');
@@ -100,7 +100,7 @@ async function displayAlbums (){
         if (e.href.includes("surahs") && !e.href.includes(".htaccess")) {
             let folder = e.href.split("/")[4];
             console.log(e.href.split("/")[4]);
-            let a = await fetch(`http://127.0.0.1:5500/recitations/${folder}/info.json`);
+            let a = await fetch(`/recitations/${folder}/info.json`);
             let response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card ">
             <div class="play-btn">
