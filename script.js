@@ -97,7 +97,7 @@ async function displayAlbums (){
     for (let index = 0; index < arr.length; index++) {
         let e= arr[index];
         
-        if (e.href.includes("surahs")) {
+        if (e.href.includes("surahs") && !e.href.includes(".htaccess")) {
             let folder = e.href.split("/")[4];
             console.log(e.href.split("/")[4]);
             let a = await fetch(`http://127.0.0.1:5500/recitations/${folder}/info.json`);
@@ -121,7 +121,7 @@ async function displayAlbums (){
 }
  
 async function recitations () {
-    await getRecitations('recitations/1-10surahs');
+    await getRecitations('recitations/81-90surahs');
     playRec(recAll[0],true)
     // console.log(recAll);
 
