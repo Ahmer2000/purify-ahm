@@ -105,7 +105,7 @@ async function displayAlbums (){
             e.addEventListener('click',async (item)=>{
                 recAll = await getRecitations(`recitations/${item.currentTarget.dataset.folder}`);
                 document.querySelector('.left').style.left = '0' + '%';
-                playRec(recAll[0])
+                // playRec(recAll[0])
             })
         })
         
