@@ -32,10 +32,10 @@ async function getRecitations (folder) {
     // console.log(response);
     let div = document.createElement('div');
     div.innerHTML = response;
-    let anchors = div.getElementsByTagName('a');
+    let as = div.getElementsByTagName('a');
     recAll = [];
-    for (let index = 0; index < anchors.length; index++) {
-        const element = anchors[index];
+    for (let index = 0; index < as.length; index++) {
+        const element = as[index];
         if (element.href.endsWith('.mp3')) {
             recAll.push(element.href.split(`/${folder}/`)[1]);
         }
@@ -64,23 +64,12 @@ async function getRecitations (folder) {
          e.addEventListener('click',element=>{
              console.log(e.querySelector('.recInfo').firstElementChild.innerHTML);
              playRec(e.querySelector('.recInfo').firstElementChild.innerHTML);
+             document.querySelector('.left').style.left = '-120' + '%';
          })
      });
-     // Attach an event listener to backward and forward buttons of playbar
-    document.querySelector('.forward').addEventListener('click',()=>{
-        let index = recAll.indexOf(currentSurah.src.split(`/${currFolder}/`)[1]);
-        if ((index + 1) < recAll.length) {
-            playRec(recAll[index + 1])
-        }
-        console.log(index);
-    })
-    document.querySelector('.backward').addEventListener('click',()=>{
-        let index = recAll.indexOf(currentSurah.src.split(`/${currFolder}/`)[1]);
-        if ((index - 1) >= 0) {
-            playRec(recAll[index - 1])
-        }
-        console.log(index);
-    })
+   
+    return recAll;    
+   
 }
 
 async function displayAlbums (){
@@ -95,7 +84,7 @@ async function displayAlbums (){
     console.log(anchors)
     let arr = Array.from(anchors);
     for (let index = 0; index < arr.length; index++) {
-        let e= arr[index];
+        const e= arr[index];
         
         if (e.href.includes("surahs") && !e.href.includes(".htaccess")) {
             let folder = e.href.split("/")[4];
@@ -115,8 +104,11 @@ async function displayAlbums (){
         Array.from(document.getElementsByClassName('card')).forEach((e)=>{
             e.addEventListener('click',async (item)=>{
                 recAll = await getRecitations(`recitations/${item.currentTarget.dataset.folder}`);
+                document.querySelector('.left').style.left = '0' + '%';
+                playRec(recAll[0])
             })
         })
+        
         
 }
  
@@ -126,7 +118,8 @@ async function recitations () {
     // console.log(recAll);
 
     // Display all the albums on the page
-    displayAlbums();
+    await displayAlbums();
+   
 
     // Attach an event-listener to play prev and next 
     play.addEventListener('click',()=>{
@@ -139,6 +132,7 @@ async function recitations () {
             play.src = "./images/play.svg"
         }
     })
+   
 
     // Attach an eventlistener to audio-duration
     currentSurah.addEventListener('timeupdate',()=>{
@@ -163,6 +157,9 @@ async function recitations () {
     document.querySelector('.close').addEventListener("click",()=>{
         document.querySelector('.left').style.left = '-120' + '%';
     })
+    document.querySelector('.H').addEventListener("click",()=>{
+        document.querySelector('.left').style.left = '-120' + '%';
+    })
     
     // Attach an event listener to volume slider
     document.querySelector('.slider').addEventListener('change',(e)=>{
@@ -173,6 +170,21 @@ async function recitations () {
         else{
             document.querySelector('.mute').style.opacity = '0'
         }
+    })
+       // Attach an event listener to backward and forward buttons of playbar
+       document.querySelector('.forward').addEventListener('click',()=>{
+        let index = recAll.indexOf(currentSurah.src.split("/")[5]);
+        if ((index + 1) < recAll.length) {
+            playRec(recAll[index + 1])
+        }
+        console.log(index);
+    })
+    document.querySelector('.backward').addEventListener('click',()=>{
+        let index = recAll.indexOf(currentSurah.src.split("/")[5]);
+        if ((index - 1) >= 0) {
+            playRec(recAll[index - 1])
+        }
+        console.log(index);
     })
    
 } 
