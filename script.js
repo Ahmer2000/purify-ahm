@@ -113,7 +113,7 @@ async function displayAlbums (){
 }
  
 async function recitations () {
-    await getRecitations('recitations/91-100surahs');
+    await getRecitations('recitations/101-110surahs');
     playRec(recAll[0],true)
     // console.log(recAll);
 
