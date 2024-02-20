@@ -62,9 +62,10 @@ async function getRecitations (folder) {
      // Attach an event-listener on playlist item
      Array.from(document.querySelector('.recCards').getElementsByTagName('li')).forEach((e)=>{
          e.addEventListener('click',element=>{
-             console.log(e.querySelector('.recInfo').firstElementChild.innerHTML);
-             playRec(e.querySelector('.recInfo').firstElementChild.innerHTML);
+             console.log(element.querySelector('.recInfo').firstElementChild.innerHTML);
+             playRec(element.querySelector('.recInfo').firstElementChild.innerHTML);
              document.querySelector('.left').style.left = '-120' + '%';
+             document.querySelector("#cardplay").src="./images/pause.svg";
          })
      });
    
@@ -105,7 +106,9 @@ async function displayAlbums (){
             e.addEventListener('click',async (item)=>{
                 recAll = await getRecitations(`recitations/${item.currentTarget.dataset.folder}`);
                 document.querySelector('.left').style.left = '0' + '%';
-                // playRec(recAll[0])
+                playRec(recAll[0])
+                document.querySelector("#cardplay").src="./images/pause.svg";
+                document.querySelector(".play-btn img").src="./images/pause.svg";
             })
         })
         
@@ -126,11 +129,16 @@ async function recitations () {
         if (currentSurah.paused) {
             currentSurah.play()
             play.src = "./images/pause.svg"
+            document.querySelector("#cardplay").src="./images/pause.svg";
+            document.querySelector(".play-btn img").src="./images/pause.svg";
         }
         else{
             currentSurah.pause()
             play.src = "./images/play.svg"
+            document.querySelector(".play-btn img").src="./images/play.svg";
+            document.querySelector("#cardplay").src="./images/play.svg";
         }
+
     })
    
 
