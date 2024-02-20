@@ -10,6 +10,7 @@ const playRec = (surah,pause=false)=>{
     }  
     document.querySelector('.audio-info').innerHTML= surah.replace('.mp3','');
     document.querySelector('.audio-duration').innerHTML= '00:00/00:00';
+    
 }
 function secondsToMinutes(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -27,7 +28,7 @@ function secondsToMinutes(seconds) {
 
 async function getRecitations (folder) {
     currFolder = folder
-    let a = await fetch(`/${folder}/`);
+    let a = await fetch(`/${folder}/`)
     let response = await a.text();
     // console.log(response);
     let div = document.createElement('div');
@@ -62,16 +63,14 @@ async function getRecitations (folder) {
      // Attach an event-listener on playlist item
      Array.from(document.querySelector('.recCards').getElementsByTagName('li')).forEach((e)=>{
          e.addEventListener('click',element=>{
-             console.log(element.querySelector('.recInfo').firstElementChild.innerHTML);
-             playRec(element.querySelector('.recInfo').firstElementChild.innerHTML);
+             console.log(e.querySelector('.recInfo').firstElementChild.innerHTML);
+             playRec(e.querySelector('.recInfo').firstElementChild.innerHTML);
              document.querySelector('.left').style.left = '-120' + '%';
-             document.querySelector("#cardplay").src="./images/pause.svg";
          })
      });
-   
-    return recAll;    
-   
-}
+     
+     return recAll;    
+     }
 
 async function displayAlbums (){
     let a = await fetch(`/recitations/`);
@@ -107,8 +106,6 @@ async function displayAlbums (){
                 recAll = await getRecitations(`recitations/${item.currentTarget.dataset.folder}`);
                 document.querySelector('.left').style.left = '0' + '%';
                 playRec(recAll[0])
-                document.querySelector("#cardplay").src="./images/pause.svg";
-                document.querySelector(".play-btn img").src="./images/pause.svg";
             })
         })
         
@@ -116,7 +113,7 @@ async function displayAlbums (){
 }
  
 async function recitations () {
-    await getRecitations('recitations/111-114surahs');
+    await getRecitations('recitations/91-100surahs');
     playRec(recAll[0],true)
     // console.log(recAll);
 
@@ -129,14 +126,10 @@ async function recitations () {
         if (currentSurah.paused) {
             currentSurah.play()
             play.src = "./images/pause.svg"
-            document.querySelector("#cardplay").src="./images/pause.svg";
-            document.querySelector(".play-btn img").src="./images/pause.svg";
         }
         else{
             currentSurah.pause()
             play.src = "./images/play.svg"
-            document.querySelector(".play-btn img").src="./images/play.svg";
-            document.querySelector("#cardplay").src="./images/play.svg";
         }
 
     })
