@@ -308,7 +308,7 @@ body {
     .play-btn {
         opacity: 1;
         transition: all 0.3s ease-out;
-        top: 123px;
+        top: 116px;
         cursor: pointer;
     }
 }
@@ -499,6 +499,7 @@ body {
     }
 }
 @media (max-width:520px){
+    
     .playbar{
         width: 100%;
         height: calc(34% - 90px);
