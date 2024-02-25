@@ -259,7 +259,7 @@ body {
 
 }
 .cardContainer {
-    padding: 0px 9px 0px 0px;
+    padding: 0px 0px 0px 0px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 44px;
@@ -449,7 +449,7 @@ body {
         transition: all 0.5s;
         z-index: 3;
         width: 264px;
-        height: 97%;
+        height: 97vh;
         background-color: black;
         padding-right: 8px;
         padding-top: 6px;
@@ -533,5 +533,142 @@ body {
         gap: 9px;
         border-left: 2.3px solid #30b93c;
         padding-left: 7px;
+    }
+    .left{
+        height: 97vh;
+    }
+}
+@media (max-width:290px) {
+    .card {
+        width: 253px;
+        margin-left: 11px;
+    }
+
+    .cardContainer {
+        position: relative;
+        overflow: unset;
+        z-index: 0;
+        width: 115%;
+        margin: 0px;
+        margin-left: -17px;
+    }
+
+    .navbar {
+        background-color: #1e1e1e;
+        position: fixed;
+        left: 1%;
+        right: 1%;
+        z-index: 1;
+        border-radius: 19px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        top: 0px;
+    }
+
+    .progressBar {
+        position: fixed;
+        bottom: calc(36% - 92px);
+        width: 88%;
+        left: 5.6%;
+    }
+
+    .playbar {
+        position: fixed;
+        left: 5.5%;
+        width: 88.25%;
+        height: calc(34% - 90px);
+        border-radius: 26px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        bottom: 12px;
+        background: rgba(30, 30, 30, 0.7);
+    }
+
+    .right {
+        min-height: 298vh;
+        margin-bottom: 0px;
+    }
+
+    .left {
+        position: fixed;
+        bottom: 0px;
+        top: 0px;
+        height: 99.1vh;
+    }
+    .playbuttons img{
+        background: rgba(30, 30, 30, 0);
+    }
+    .audio-duration{
+        background: rgba(30, 30, 30, 0);
+    }
+    .volumeI{
+        background: rgba(30, 30, 30, 0);
+    }
+}
+
+@media (max-width:400px) {
+    .card {
+        width: 336px;
+        height: 302px;
+    }
+
+    .cardContainer {
+        position: relative;
+        overflow: unset;
+        z-index: 0;
+        width: 115%;
+        margin: 0px;
+        margin-left: -7.7%;
+    }
+
+    .navbar {
+        background-color: #1e1e1e;
+        position: fixed;
+        left: 1%;
+        right: 1%;
+        z-index: 1;
+        border-radius: 19px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        top: 0px;
+    }
+
+    .progressBar {
+        position: fixed;
+        bottom: calc(36% - 92px);
+        width: 88%;
+        left: 5.9%;
+    }
+
+    .playbar {
+        position: fixed;
+        left: 5.8%;
+        width: 88.25%;
+        height: calc(34% - 90px);
+        border-radius: 26px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        bottom: 12px;
+        background: rgba(30, 30, 30, 0.7);
+    }
+    .playbuttons img{
+        background: rgba(30, 30, 30, 0);
+    }
+    .right {
+        min-height: 298vh;
+        margin-bottom: 0px;
+    }
+
+    .left {
+        position: fixed;
+        bottom: 0px;
+        top: 0px;
+        height: 99.1vh;
+    }
+    .audio-duration{
+        background: rgba(30, 30, 30, 0);
+    }
+    .volumeI{
+        background: rgba(30, 30, 30, 0);
     }
 }
