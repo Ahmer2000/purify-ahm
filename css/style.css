@@ -353,7 +353,7 @@ body {
     position: absolute;
     width: 100%;
     height: 4rem;
-    background-color: #1e1e1e;
+    background: #1f261b;
     bottom: 0px;
     left: 0px;
     border-radius: 8px;
@@ -365,7 +365,7 @@ body {
 }
 
 .playbuttons img {
-    background-color: #1e1e1e;
+    background: #1f261b;
     width: 40px;
 }
 
@@ -454,7 +454,9 @@ body {
         padding-right: 8px;
         padding-top: 6px;
     }
-
+    .playbuttons img{
+        background: #1f261b;
+    }
     .right {
         width: 98vw;
         height: 97vh;
@@ -466,6 +468,7 @@ body {
     .playbar{
         width: 100%;
         height: calc(34%-90px);
+        background: #1f261b;
     }
     .cardContainer {
         width: 79%;
@@ -504,6 +507,7 @@ body {
         width: 100%;
         height: calc(34% - 90px);
         flex-direction: column;
+        background: #1f261b;
     }
     .progressBar{
         position: absolute;
@@ -512,6 +516,7 @@ body {
     .playbuttons img{
         max-width: 54px;
         margin-top: -5px;
+        background: #1f261b;
     }
     .playbuttons{
         gap: 0px;
@@ -541,7 +546,7 @@ body {
 @media (max-width:290px) {
     .card {
         width: 253px;
-        margin-left: 11px;
+        margin-left: 2px;
     }
 
     .cardContainer {
@@ -581,7 +586,7 @@ body {
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
         bottom: 12px;
-        background: rgba(30, 30, 30, 0.7);
+        background: #1f261b;
     }
 
     .right {
@@ -596,7 +601,7 @@ body {
         height: 99.1vh;
     }
     .playbuttons img{
-        background: rgba(30, 30, 30, 0);
+        background: #1f261b;
     }
     .audio-duration{
         background: rgba(30, 30, 30, 0);
@@ -649,10 +654,10 @@ body {
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
         bottom: 12px;
-        background: rgba(30, 30, 30, 0.7);
+        background: #1f261b;
     }
     .playbuttons img{
-        background: rgba(30, 30, 30, 0);
+        background: #1f261b;
     }
     .right {
         min-height: 298vh;
